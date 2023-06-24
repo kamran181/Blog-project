@@ -1,0 +1,29 @@
+<%- include('partials/header'); %>
+    <% if({blogs}){ %>
+
+        <h1 style="text-align: center;">Blogs</h1>
+
+        <div class="row" style="justify-content: center;">
+            <% blogs.map((blog)=>{ %>
+                <div class="card mt-4" style="width:25rem; ">
+                    <img class="card-img-top" src="<%=  blog.imageUrl %>" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <%= blog.title %>
+                        </h4>
+                        <h5 class="card-text">
+                            <%= blog.description %>
+                        </h5>
+                        <p class="card-text"> Created by <i><%= blog.user.firstName %></i>  </p>
+
+                    </div>
+                    <% }); %>
+
+                </div>
+        </div>
+        <% } %>
+            <% if ({blogs : ''}) { %>
+                <h3 style="text-align: center;"></h3>
+                <% } %>
+
+                    <%- include('partials/footer'); %>

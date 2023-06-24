@@ -1,0 +1,26 @@
+<%- include('partials/header'); %>
+
+<h1 style="text-align: center;">My Blogs</h1>
+
+<div class="row" style="justify-content: center;">
+    <% blogs.map((blog)=>{ %>
+       
+        <div class="card mt-4" style="width:25rem; ">
+            <img class="card-img-top" src="<%= blog.imageUrl %>" alt="Card image">
+            <div class="card-body">
+                <h4 class="card-title">
+                    <%= blog.title %>
+                </h4>
+                <h5 class="card-text">
+                    <%= blog.description %>
+                </h5>
+                <a href="/blog/edit/<%=blog._id%>" class="btn btn-sm btn-warning">Edit</a>
+                <a href="/delete/<%=blog._id%>" class="btn btn-sm btn-danger">Delete</a>
+
+            </div>
+            <% }); %>
+
+        </div>
+</div>
+
+<%- include('partials/footer'); %>

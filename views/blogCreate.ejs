@@ -1,0 +1,28 @@
+<%- include('partials/header'); %>
+
+<h1 style="text-align: center;"><%= (blog._id?'Edit Blog' : 'Create Blog') %></h1>
+<div class="container" style="width: 60%;">
+
+
+<div class="row ">
+    <form action="/blog/create" method="post">
+        <input type="hidden" name="hidden_id" value="<%=blog._id %>" >
+        <div class="col-lg-12 mt-4">
+            <input type="text" class="form-control" name="title" placeholder="Title" value="<%=blog.title%>">
+        </div>
+        <div class="col-lg-12 mt-4">
+            <input type="text" class="form-control" name="imageUrl" placeholder="Image Url" value="<%=blog.imageUrl%>">
+        </div>
+        <div class="col-lg-12 mt-4">
+            <textarea class="form-control" name="description" cols="30" rows="10" placeholder="Write about Your Blog" ><%=blog.description%></textarea>
+        </div>
+        <div class="col-lg-12 mt-4">
+            <input type="submit" value="<%= (blog._id?'Update' : 'Submit') %>" class="w-100 btn btn-lg btn-dark form-control">
+        </div>
+    </form>
+</div>
+</div>
+
+
+
+<%- include('partials/footer'); %>
